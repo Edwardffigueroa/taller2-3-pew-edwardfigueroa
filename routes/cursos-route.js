@@ -13,6 +13,7 @@ module.exports = function () {
 
     var curso_route = express.Router();
     curso_route.use(bodyParser.json());
+    curso_route.use(bodyParser.urlencoded({extended: true}));
 
     //aqui consulto todos los cursos
     curso_route.route('/').get(function (req, res) {
@@ -61,7 +62,7 @@ module.exports = function () {
 
     // estudiantes matriculados en un curso
 
-    curso_route.route('/:id_curso/estudiantes').get(function (req, res) {
+    curso_route.route('/:id_cursos/estudiantes').get(function (req, res) {
 
         id_curso= req.params.id_cursos;
         controlcursos.getEstudiante(id_curso, function (error, curso) {
@@ -75,7 +76,6 @@ module.exports = function () {
         
     });
 
-
     //crear nuevo curso
     curso_route.route('/').post(function (req, res) {
         console.log("ha sido creado un nuevo curso con nombre:"+ req.body.nombre+"y en el periodo"+ req.body.nombre);
@@ -88,7 +88,6 @@ module.exports = function () {
         });
 
     });
-
 
     return curso_route;
 

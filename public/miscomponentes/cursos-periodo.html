@@ -1,0 +1,98 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+
+
+<dom-module id="cursos-periodo">
+    <template>
+        <style>
+            :host {
+                display: block;
+                text-align: center;
+            }
+
+            paper-card{
+                width: 400px;
+                text-align: left;
+                padding: 10px;
+            }
+            .card-actions{
+                text-align: right;
+
+            }
+
+            paper-button[raised]{
+
+                background: var(--primary-color);
+                color: #fff;
+
+            }
+
+            paper-button{
+                color: var(--accent-color);
+
+            }
+            .card-header{
+                margin: 10px;
+                font-size: 2em;
+            }
+            .card-header iron-icon{
+                height: 2em;
+                width: 2em;
+                color: var(--paper-cyan-a700)
+
+            }
+
+        </style>
+
+        <paper-card elevation="1" animatedShadow="true" >
+
+            <div class="card-header">
+                <iron-icon icon="accessibility"></iron-icon>
+                Crear Usuario
+            </div>
+
+            <form is="iron-form" id="form">
+                <div class="card-content">
+
+                    <paper-input label="User" required></paper-input>
+                    <paper-input label="pass" required></paper-input>
+
+                </div>
+                <div class="card-actions">
+
+                    <paper-button raised id="login" on-click="click">Enviar</paper-button>
+                    <paper-button >Cancelar</paper-button>
+
+                </div>
+            </form>
+
+        </paper-card>
+
+    </template>
+
+    <script>
+        Polymer({
+
+            is: 'cursos-periodo',
+
+
+
+            ready:function () {
+
+            },
+            click: function () {
+
+                alert("hola")
+            }
+
+
+        });
+
+    </script>
+</dom-module>
+

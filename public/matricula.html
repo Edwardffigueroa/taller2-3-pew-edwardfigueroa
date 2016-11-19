@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <title>t2-pew-edwardfigueroa</title>
+
+    <!-- IMPORTS POLYMER -->
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../public/miscomponentes/cursos-periodo.html" />
+
+    <link rel="import" href="../bower_components/polymer/polymer-micro.html">
+
+
+
+
+</head>
+<body>
+
+<div class="main">
+
+
+
+    <div class="menu">
+        <ul>
+
+            <li><a href="#">Cursos por semestre</a></li>
+            <li><a href="#">Matricular</a></li>
+            <li><a href="#">ver Notas</a></li>
+
+        </ul>
+
+    </div>
+    <div class="content">
+
+        <!-- TITLE-->
+
+        <div class="curso">
+
+            <h2>Matricular Estudiante</h2>
+
+        </div>
+
+<div class="list-matricula">
+        <form action="">
+            Seleccione Periodo<input list="periodo" placeholder="Periodo">
+
+                <datalist id="periodo">
+                    <option value="16-1">
+                    <option value="16-2">
+                </datalist>
+            Seleccione Estudiante<input list="estudiante" placeholder="estudiante">
+
+                    <datalist id="estudiante">
+                    <option value="16-1">
+                    <option value="16-2">
+                    </datalist>
+
+            Seleccione Materia<input list="materia" placeholder="materia">
+
+                    <datalist id="materia">
+                    <option value="16-1">
+                    <option value="16-2">
+                    </datalist>
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+</div>
+</body>
+</html>

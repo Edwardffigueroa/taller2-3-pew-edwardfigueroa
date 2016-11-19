@@ -27,7 +27,6 @@ exports.getEstudiante= function (id_estudiante, done) {
             return done(err);
         }else{
             done(null, rows);
-
         }
     });
     ;

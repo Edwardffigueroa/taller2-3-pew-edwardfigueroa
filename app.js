@@ -11,6 +11,7 @@ var db= require("./db");
 var app= express();
 app.use(morgan('dev'));
 app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
 //rutas
@@ -20,6 +21,8 @@ var route_estudiantes= require("./routes/estudiantes-route.js");
 var route_matrica =require("./routes/matriculas-route.js");
 
 
+
+
 app.use('/servicios/cursos', route_curso);
 app.use('/servicios/estudiantes', route_estudiantes);
 app.use('/servicios/matriculas', route_matrica);
@@ -27,6 +30,7 @@ app.use('/servicios/matriculas', route_matrica);
 
 // conexion con base de datos
 db.connect(function (err) {
+
     if(err){
 
         console.log("lo sentimos no se pudo conectar a la base de datos");

@@ -8,7 +8,7 @@ var db= require('../db');
     //se consultan los cursos
 exports.getAll= function (done) {
 
-    db.get().query('SELECT nombre FROM appnotas_cursos', function (err, rows) {
+    db.get().query('SELECT * FROM appnotas_cursos', function (err, rows) {
         if(err){
             return done(err);
            console.log("hay error");
