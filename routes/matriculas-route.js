@@ -11,16 +11,22 @@ var controlmatriculas = require('../models/matriculas-controlador');
 
 module.exports = function () {
 
+
     var matriculas_route = express.Router();
     matriculas_route.use(bodyParser.json());
+   // matriculas_route.use(bodyParser.urlencoded({extended: true}));
+
 
     //matricular estudiante
 
     matriculas_route.route('/').post(function (req, res) {
+
         console.log("has matriculado el estudiante: "+ req.body.id_estudiante+" en el curso: "+ req.body.id_curso);
+
         controlmatriculas.createMatricula(req.body.id_curso, req.body.id_estudiante, function (err, done) {
             if(!err){
                 res.json(done);
+
             }else{
                 res.json(err);
             }
@@ -30,6 +36,7 @@ module.exports = function () {
 
     //actualizar nota en curso
     matriculas_route.route('/').put(function (req, res) {
+
         console.log("actualizando notilla en :"+ req.body.nota_obtenida);
 
         controlmatriculas.actualizarPut(req.body.id_curso, req.body.id_estudiante, req.body.nota_obtenida, function (error, matricula) {
@@ -41,7 +48,6 @@ module.exports = function () {
         });
 
     });
-
 
     return matriculas_route;
 

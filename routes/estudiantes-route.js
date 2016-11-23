@@ -48,8 +48,10 @@ module.exports = function () {
     //informacion de los cursos de un estudiante
 
     estudiante_route.route('/:id_estudiante/curso').get(function (req, res) {
-        id_estudiante= req.params.id_estudiante;
-        controlestudiantes.getCursosEstudiantes(id_estudiante, function (error, estudiante) {
+
+        id_estudiantek= req.params.id_estudiante;
+
+        controlestudiantes.getCursosEstudiantes(req.params.id_estudiante, function (error, estudiante) {
             if (!error){
                 res.json(estudiante);
             }else{

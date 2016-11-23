@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <link rel="stylesheet" href="stylesheets/style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
     <title>t2-pew-edwardfigueroa</title>
     <script src="angular/moduleApp.js"></script>
 
@@ -17,51 +19,50 @@
 
     <link rel="import" href="../bower_components/polymer/polymer-micro.html">
 
-
-
-
 </head>
 <body>
 
-<div class="main" ng-app="app"ng-controller="controlCursos">
-
-
-
+<div class="main" ng-app="app">
 
     <div class="menu">
+        <img src="./images/logo.png" alt="">
         <ul>
 
-            <li><a href="#">Cursos por semestre</a></li>
-            <li><a href="#">Matricular</a></li>
+
+            <li><a href="index.html">Cursos por periodo</a></li>
+            <li><a href="matricula.html">Matricular</a></li>
+            <li><a href="nota.html">ver Notas</a></li>
 
         </ul>
 
     </div>
+
     <div class="content" ng-app="app" ng-controller="controlCursos">
 
         <!-- TITLE-->
 
-        <div class="curso"  ><h3>Nombre Curso asdvasbfb</h3> <p>Periodo</p> <h4>Promedio</h4></div>
+        <div class="curso"><h3>{{curso[0].nombre}}</h3> <p>{{curso[0].periodo}}</p> <h4>{{promedio}}</h4></div>
+
         <h2>Estiantes Matriculados</h2>
 
         <div class="list">
 
             <!--LISTA DE ESTUDIANTES -->
 
-        <div class="estudiante"  ng-repeat="g in estudiantesCurso"><p>{{g.nombres}} {{g.apellidos}}</p><h4>Nota</h4>
+            <div class="estudiante"  ng-repeat="g in estudiantesCurso"><a href="estudiante.html?idestudiante={{g.id_estudiante}}">{{g.nombres}} {{g.apellidos}}</p></a><h4>{{g.nota_obtenida}}</h4>
 
-            <form action="">
-            <input type="text" name="nota" placeHolder="Nota">
-            <input type="submit" value="subir">
+            <form action="index.html">
+
+              <input type="text" name="nota" placeHolder="Ingrese nota" ng-model="notaNew">
+                <a href="index.html"><input type="submit" value="Update" ng-model="notaNew" ng-click="actualizar(g.id_curso,g.id_estudiante,notaNew)"></a>
             </form>
 
         </div>
-
         </div>
 
     </div>
 
 
-</div>
+    </div>
 </body>
 </html>

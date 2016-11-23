@@ -9,6 +9,10 @@
 
     <!-- IMPORTS POLYMER -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
+
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="../public/miscomponentes/cursos-periodo.html" />
@@ -16,26 +20,27 @@
     <link rel="import" href="../bower_components/polymer/polymer-micro.html">
 
 
-
+    <script src="angular/moduleApp.js"></script>
 
 </head>
 <body>
 
-<div class="main">
+<div class="main" ng-app="app">
 
 
 
     <div class="menu">
+        <img src="./images/logo.png" alt="">
         <ul>
 
-            <li><a href="#">Cursos por semestre</a></li>
-            <li><a href="#">Matricular</a></li>
-            <li><a href="#">ver Notas</a></li>
+            <li><a href="index.html">Cursos por periodo</a></li>
+            <li><a href="matricula.html">Matricular</a></li>
+            <li><a href="nota.html">ver Notas</a></li>
 
         </ul>
 
     </div>
-    <div class="content">
+    <div class="content" ng-controller="controlMatricula">
 
         <!-- TITLE-->
 
@@ -46,34 +51,43 @@
         </div>
 
 <div class="list-matricula">
-        <form action="">
-            Seleccione Periodo<input list="periodo" placeholder="Periodo">
 
-                <datalist id="periodo">
-                    <option value="16-1">
-                    <option value="16-2">
-                </datalist>
-            Seleccione Estudiante<input list="estudiante" placeholder="estudiante">
+        <form action=" ">
+
+
+            <!--SELECCIONAR CURSO  -->
+            Seleccione Materia<input list="materia" placeholder="materia" type="text" name="id_curso" ng-model="seleccionCurso">
+
+            <datalist id="materia">
+                <option value="{{c.id_curso}}" ng-repeat="c in cursosnotas |unique: 'cursos'">
+                    {{c.nombre}}
+
+                </option>
+
+            </datalist>
+
+
+            <!--SELECCIONAR ESTUDAIANTE  -->
+            Seleccione Estudiante<input list="estudiante" placeholder="estudiante" type="text" name="id_estudiante" ng-model="seleccionEstudiante">
 
                     <datalist id="estudiante">
-                    <option value="16-1">
-                    <option value="16-2">
+
+                        <option value="{{e.id_estudiante}}" ng-repeat="e in estudiantesNotas |unique: 'estudiantes'">
+                            {{e.nombres}} {{e.apellidos}}
+
+                        </option>
                     </datalist>
 
-            Seleccione Materia<input list="materia" placeholder="materia">
 
-                    <datalist id="materia">
-                    <option value="16-1">
-                    <option value="16-2">
-                    </datalist>
+            <a href="index.html"> <input type="submit" ng-model="seleccionEstudiante" ng-model="seleccionCurso" ng-click="matricular(seleccionCurso,seleccionEstudiante)" value="listo"></a>
+
+
 
         </form>
-
 
     </div>
 
 </div>
-
 
 </div>
 </body>

@@ -20,7 +20,7 @@ exports.getAll= function (done) {
 
     //consulto el curso indicado
 exports.getCurso = function (id_curso, done) {
-    db.get().query('SELECT nombre FROM appnotas_cursos WHERE id_curso= ?', [id_curso], function (err, rows) {
+    db.get().query('SELECT nombre, periodo,id_curso FROM appnotas_cursos WHERE id_curso= ?', [id_curso], function (err, rows) {
         if(err){
 
             return done(err);
@@ -46,7 +46,8 @@ exports.getPeriodoCurso= function (periodo, done) {
 
     //ver estudiantes de un curso
 exports.getEstudiante= function (id_curso, done) {
-    db.get().query('SELECT estudiantes.nombres, estudiantes.apellidos FROM appnotas_estudiantes estudiantes, appnotas_cursos cursos, appnotas_matricula matri WHERE estudiantes.id_estudiante=matri.id_estudiante AND matri.id_curso=cursos.id_curso AND cursos.id_curso= ?', [id_curso], function (err, rows) {
+
+    db.get().query('SELECT estudiantes.nombres, estudiantes.apellidos, estudiantes.id_estudiante, matri.nota_obtenida, cursos.id_curso FROM appnotas_estudiantes estudiantes, appnotas_cursos cursos, appnotas_matricula matri WHERE estudiantes.id_estudiante=matri.id_estudiante AND matri.id_curso=cursos.id_curso AND cursos.id_curso= ?', [id_curso], function (err, rows) {
      if(err){
         return done(err);
 

@@ -12,6 +12,7 @@ exports.createMatricula= function (id_curso, id_estudiante, done) {
     var matricula = {
         id_curso: id_curso,
         id_estudiante: id_estudiante
+
     };
     db.get().query('INSERT INTO appnotas_matricula SET ? ',matricula, function (err, rows) {
         if(err){

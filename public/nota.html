@@ -9,96 +9,60 @@
 
     <!-- IMPORTS POLYMER -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+
+
     <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
     <link rel="import" href="../public/miscomponentes/cursos-periodo.html" />
 
     <link rel="import" href="../bower_components/polymer/polymer-micro.html">
-
+    <script src="angular/moduleApp.js"></script>
 
 
 
 </head>
 <body>
 
-<div class="main">
-
-
+<div class="main" ng-app="app">
 
     <div class="menu">
+        <img src="./images/logo.png" alt="">
         <ul>
 
-            <li><a href="#">Cursos por semestre</a></li>
-            <li><a href="#">Matricular</a></li>
-            <li><a href="#">ver Notas</a></li>
+             <li><a href="index.html">Cursos por periodo</a></li>
+            <li><a href="matricula.html">Matricular</a></li>
+            <li><a href="nota.html">ver Notas</a></li>
 
         </ul>
 
     </div>
-    <div class="content">
+    <div class="content" ng-controller="controlNota">
 
-        <!-- TITLE-->
 
-        <div class="curso">
-            <h3>Seleccione un estudiante</h3>
-            <input list="browsers">
+        <div class="curso"><h3>{{infoEstudiante[0].nombres}} {{infoEstudiante[0].apellidos}}</h3> <p>Semestre: {{infoEstudiante[0].semestre}}</p> <h4>Promedio: {{promedioCursos()}}</h4></div>
 
-            <datalist id="browsers">
-                <option value="Edward">
-                <option value="Andres">
-                <option value="Santiago">
-                <option value="Elking">
-
-            </datalist>
-            <p>Semestre</p>
-
-            <input list="periodo">
-
-            <datalist id="periodo">
-                <option value="16-1">
-                <option value="16-2">
-
-            </datalist>
-
-        </div>
-        <h2>Estiantes Matriculados</h2>
+        <h2>Materias Matriculadas</h2>
 
         <div class="list">
 
             <!--LISTA DE ESTUDIANTES -->
 
-            <div class="estudiante"><p>Matematicas para el diseño</p> <h4>nota</h4>
+            <div class="estudiante" ng-repeat="e in cursosEstudiante"><p>{{e.nombre}}</p> <h4>{{e.nota_obtenida}}</h4>
 
-
-                <form action="">
-                    <input type="text" name="nota" placeHolder="Nota">
-                    <input type="submit" value="subir">
+                <form action="index.html">
+                    <input type="text" name="nota" placeHolder="Nota" ng-model="notaNew">
+                    <input type="submit" value="Update" ng-model="notaNew" ng-click="actualizarM(e.id_curso,e.id_estudiante,notaNew)">
                 </form>
 
             </div>
 
-            <div class="estudiante"><p>Programación en web</p> <h4>nota</h4>
 
-                <form action="">
-                    <input type="text" name="nota" placeHolder="Nota">
-                    <input type="submit" value="subir">
-                </form>
-
-            </div>
-
-            <div class="estudiante"><p>Programacion en redes</p> <h4>nota</h4>
-
-                <form action="">
-                    <input type="text" name="nota" placeHolder="Nota">
-                    <input type="submit" value="subir">
-                </form>
-
-            </div>
         </div>
 
-    </div>
 
-</div>
+    </div>
 
 
 </div>
