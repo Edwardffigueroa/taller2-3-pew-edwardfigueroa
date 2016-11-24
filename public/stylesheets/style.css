@@ -117,8 +117,8 @@ input{
 
 
 
-  -webkit-box-shadow: 0 4px 15px 2px rgba(0,0,0,0.1);
-  box-shadow: 0 4px 15px 2px rgba(0,0,0,0.2);
+  /*-webkit-box-shadow: 0 4px 15px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px 2px rgba(0,0,0,0.2);*/
 
 
 }
@@ -133,6 +133,8 @@ input{
   -ms-transition: all 300ms ease-out;
   -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+
+
 }
 
 .estudiante{
@@ -158,11 +160,27 @@ input{
 }
 .estudiante input{
 
-  width: 50px;
+  width: 90px;
   height: 25px;
   font-size: 15px;
   border: none;
 
+}
+.estudiante input[value=Subir]{
+
+  background: #326986;
+  color: white;
+}
+.estudiante input[value=Subir]:hover{
+  -webkit-box-shadow: 0 4px 15px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px 2px rgba(0,0,0,0.3);
+
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  background-color: #4685A5;
 }
 
 .list-matricula{
@@ -180,8 +198,19 @@ input{
 .list-matricula input{
 
   width: 120px;
-  color:whitesmoke;
+  color:darkslategray;
 }
+
+.content input[value=ver]{
+
+  width: 100px;
+  height: 30px;
+  padding: 20px;
+
+
+
+}
+
 
 
 

@@ -1,5 +1,6 @@
 /**
  * Created by edward on 19/11/16.
+ * Suport by Andres GC
  */
 var appModule = angular.module('app', ['angular.filter']);
 
@@ -181,9 +182,10 @@ appModule.controller("controlEstudiante", function ($scope, $http) {
 appModule.controller("controlNota", function ($scope, $http) {
 
 
+        $scope.id_estudiante=1;
 
 
-    $scope.id_estudiante=1;
+
 
     //aqui obtengo todos los estudiante
     $http.get("/servicios/estudiantes/"+ $scope.id_estudiante).then(function (response) {

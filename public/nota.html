@@ -40,8 +40,9 @@
     </div>
     <div class="content" ng-controller="controlNota">
 
+        <!-- -->
 
-        <div class="curso"><h3>{{infoEstudiante[0].nombres}} {{infoEstudiante[0].apellidos}}</h3> <p>Semestre: {{infoEstudiante[0].semestre}}</p> <h4>Promedio: {{promedioCursos()}}</h4></div>
+        <div class="curso"><h3>{{infoEstudiante[0].nombres}} {{infoEstudiante[0].apellidos}}</h3> <p></p> <h4></h4></div>
 
         <h2>Materias Matriculadas</h2>
 
@@ -53,7 +54,7 @@
 
                 <form action="index.html">
                     <input type="text" name="nota" placeHolder="Nota" ng-model="notaNew">
-                    <input type="submit" value="Update" ng-model="notaNew" ng-click="actualizarM(e.id_curso,e.id_estudiante,notaNew)">
+                    <input type="submit" value="Subir" ng-model="notaNew" ng-click="actualizarM(e.id_curso,e.id_estudiante,notaNew)">
                 </form>
 
             </div>
